@@ -1,0 +1,45 @@
+.loader-ball {
+  width: 150px;
+  height: 150px;
+  z-index: 100;
+  position: fixed;
+  /*居于屏幕正中心*/
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+}
+
+.loader-ball::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  /*必须要设置content和display宽高才能使元素正常显示*/
+  border-radius: 50%;
+  background-color: #4fc3f7;
+  position: absolute;
+  top: 60px;
+  animation: move 0.6s ease-in-out infinite alternate;
+}
+
+.loader-ball::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  /*必须要设置content和display宽高才能使元素正常显示*/
+  border-radius: 50%;
+  background-color: #6cc88a;
+  position: absolute;
+  top: 60px;
+  animation: move 0.6s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(22.5px);
+  }
+
+  to {
+    transform: translateX(97.5px);
+  }
+}

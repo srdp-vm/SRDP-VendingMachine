@@ -1,0 +1,26 @@
+.button {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 50px;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+.btn-open {
+  height: 100px;
+  width: 100px;
+  padding: 0;
+  color: #FFF;
+  background: linear-gradient(to right, #00c3ff, #00bdff, #008fff);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 1px 1px 5px rgba(110, 110, 110, 0.8);
+}
+
+.btn-open:active {
+  background: linear-gradient(to right bottom, #d7d0d0, #bdbdbd, #afafaf);
+}

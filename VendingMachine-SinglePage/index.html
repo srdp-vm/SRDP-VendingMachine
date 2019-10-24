@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="img/index.ico">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/shoppingcar.css">
+  <link rel="stylesheet" href="css/pulse.css">
+  <link rel="stylesheet" href="css/loader/ajaxloader.css">
+  <link rel="stylesheet" href="css/loader/loader-ball.css">
+  <link rel="stylesheet" href="css/transition.css">
+  <title>Welcome</title>
+</head>
+
+<body>
+  <!-- 开门页面 -->
+  <div id="index" style="display:none">
+    <div class="button">
+      <button class="btn-open" id="open">打开</button>
+      <div class="pulse delay-00"></div>
+      <div class="pulse delay-03"></div>
+    </div>
+  </div>
+
+  <!-- 加载页面 -->
+  <div id="loadpage" style="display:none">
+    <div id="transition"></div>
+    <div id="loader" style="display:none">
+      <div class="inner"></div>
+      <div class="outer"></div>
+    </div>
+  </div>
+
+  <!-- 购物车页面 -->
+  <div id="shoppingcar" style="display:none">
+    <div id="app">
+      <div id="header">
+        <!-- footer背景颜色 -->
+        <div class="background"></div>
+        <span class="carcount">购物车({{carCount}})</span>
+      </div>
+      <!-- 上段背景颜色 -->
+      <div class="color_top"></div>
+      <!-- 购物车说明 -->
+      <span class="shoppingcar">购物车</span>
+      <span class="carcount">共{{carCount}}件商品</span>
+      <!-- 购物车为空 nothing -->
+      <div id="nothing" v-if="items.length == 0">
+        <img src="./img/gouwuche.png" height="100px">
+        <span>这里空空的，什么也没有~</span>
+      </div>
+      <!-- 条目商品container -->
+      <div id="container" class="container" v-else>
+        <div class="item" :id="item.id" v-for="item in items">
+          <img :src="item.imgPath" height="100px" width="100px">
+          <div class="detail">
+            <span class="name">{{item.name}}</span>
+            <span class="price">￥{{item.price}}</span>
+            <span class="num">{{item.num}}</span>
+          </div>
+        </div>
+        <br><br>
+      </div>
+      <div id="footer">
+        <span id="totalprice">￥{{totalPrice.toFixed(2)}}</span>
+        <button>结算</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/vue.min.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/index.vue.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/websocket.js"></script>
+</body>
+
+</html>
